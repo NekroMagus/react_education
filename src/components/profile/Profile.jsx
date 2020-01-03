@@ -4,7 +4,7 @@ import css from './Profile.module.css';
 
 const Profile = () => {
     return (
-        <div className="col-md-9">
+        <main className="col-md-9">
             <div className="row">
                 <div className="col-md-4">
                     <img src={ProfileImage} className={css.img} alt="profile image"/>
@@ -14,7 +14,7 @@ const Profile = () => {
                     <p>My surname is:</p>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 

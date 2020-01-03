@@ -5,7 +5,7 @@ header {
     color: white;
 }
 
-.imgLogo {
+header img {
     height: 10vmin;
     pointer-events: none;
     animation: App-logo-spin infinite 20s linear;

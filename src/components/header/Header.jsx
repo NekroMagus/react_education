@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from '../../logo.svg';
-import css from './Header.module.css';
+import './Header.module.css';
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header className="col-sm-12">
             <div className="row">
                 <div className="col-sm-2">
-                    <img src={logo} className={css.imgLogo} alt="logo"/>
+                    <img src={logo} alt="logo"/>
                 </div>
                 <div className="col-sm-10">
                     My super social network

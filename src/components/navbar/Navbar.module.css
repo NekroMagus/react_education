@@ -1,5 +1,4 @@
 .nav {
-    min-height: 89vh;
-    display: grid;
+    min-height: 90vh;
     background-color: coral;
 }
