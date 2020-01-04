@@ -2,3 +2,7 @@
     min-height: 90vh;
     background-color: coral;
 }
+
+li a.active {
+    color: gold;
+}

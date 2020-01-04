@@ -14,7 +14,7 @@ const App = () => {
                 <div className="row">
                     <Header/>
                     <Navbar/>
-                    <div>
+                    <div className={`col-sm-9`}>
                         <Route path="/dialogs" component={Dialogs}/>
                         <Route path="/profile" component={Profile}/>
                     </div>
