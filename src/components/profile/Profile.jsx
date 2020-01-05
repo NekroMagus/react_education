@@ -2,7 +2,7 @@ import React from "react";
 import ProfileImage from '../../profile_image.jpg';
 import css from './Profile.module.css';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <main className="col-md-9">
             <div className="row">
@@ -10,8 +10,8 @@ const Profile = () => {
                     <img src={ProfileImage} className={css.img} alt="profile image"/>
                 </div>
                 <div className="col-md-7">
-                    <p>My name is:</p>
-                    <p>My surname is:</p>
+                    <p>My name is: {props.name}</p>
+                    <p>My surname is: {props.surname}</p>
                 </div>
             </div>
         </main>

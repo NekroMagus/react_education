@@ -16,7 +16,7 @@ const App = () => {
                     <Navbar/>
                     <div className={`col-sm-9`}>
                         <Route path="/dialogs" component={Dialogs}/>
-                        <Route path="/profile" component={Profile}/>
+                        <Route path="/profile" render={(props) =>(<Profile name="Igor" surname="Fliginskikh"/>)}/>
                     </div>
                 </div>
             </div>
