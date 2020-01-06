@@ -1,10 +1,10 @@
 import React from "react";
-import ProfileImage from '../../profile_image.jpg';
+import ProfileImage from '../../../profile_image.jpg';
 import css from './Profile.module.css';
 
 const Profile = (props) => {
     return (
-        <main className="col-md-9">
+        <section className="col-md-9">
             <div className="row">
                 <div className="col-md-4">
                     <img src={ProfileImage} className={css.img} alt="profile image"/>
@@ -14,7 +14,7 @@ const Profile = (props) => {
                     <p>My surname is: {props.surname}</p>
                 </div>
             </div>
-        </main>
+        </section>
     );
 };
 

@@ -7,27 +7,14 @@ import {Route} from "react-router-dom";
 
 const Dialogs = (props) => {
 
-    let dialogArray = [
-        {id: 1, name:'Sasha'},
-        {id: 2, name:'Peter'},
-        {id: 3, name:'Anya'},
-        {id: 4, name:'Elena'}
-    ];
+    let dialogElements = props.dialogs
+        .map(x =><DialogName id={x.id} name={x.name}/>);
 
-    let dialogElements = [dialogArray
-        .map(x =><DialogName id={x.id} name={x.name}/>)];
-
-    let messagesArray = [
-        {chat_id:1, message:'Hi'},
-        {chat_id:1, message:'Hello'},
-        {chat_id:1, message:'How are u?'}
-    ];
-
-    let messagesElements = messagesArray
+    let messagesElements = props.messages
         .map(x =><Route path={`/dialogs/${x.chat_id}`} render={(props)=>(<Messages message={x.message}/>)}/> );
 
     return (
-        <main className="row">
+        <section className="row">
             <div className={`col-md-3 ${css.dialogs}`}>
                 <ul>
                     {dialogElements}
@@ -38,7 +25,7 @@ const Dialogs = (props) => {
                     {messagesElements}
                 </ul>
             </div>
-        </main>
+        </section>
     );
 };
 
