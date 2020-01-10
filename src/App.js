@@ -11,9 +11,7 @@ const App = (props) => {
                 <div className="row">
                     <Header/>
                     <Navbar/>
-                    <Content dialogs={props.state.dialogs}
-                             messages={props.state.messages}
-                             user={props.state.user}/>
+                    <Content state={props.state}/>
                 </div>
             </div>
     );
