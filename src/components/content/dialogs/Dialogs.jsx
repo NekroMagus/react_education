@@ -8,10 +8,26 @@ import {Route} from "react-router-dom";
 const Dialogs = (props) => {
 
     let dialogElements = props.dialogs
-        .map(x =><DialogName id={x.id} name={x.name}/>);
+        .map(x => <DialogName id={x.id} name={x.name}/>);
 
     let messagesElements = props.messages
-        .map(x =><Route path={`/dialogs/${x.chat_id}`} render={(props)=>(<Messages message={x.message}/>)}/> );
+        .map(x => <Route path={`/dialogs/${x.chat_id}`} render={(props) => (<Messages message={x.message}/>)}/>);
+
+    let newChangeElement = React.createRef();
+
+    let changeText = () => {
+        let text = newChangeElement.current.value;
+        props.updateMessage(text);
+    };
+
+    let addMessage = () => {
+        let text = {
+            chat_id: 1,
+            message: props.newMessageText
+        };
+        props.addMessage(text);
+        props.updateMessage('');
+    };
 
     return (
         <section className="row">
@@ -24,6 +40,8 @@ const Dialogs = (props) => {
                 <ul>
                     {messagesElements}
                 </ul>
+                <textarea ref={newChangeElement} onChange={changeText} value={props.newMessageText}/>
+                <button onClick={addMessage}>addMessage</button>
             </div>
         </section>
     );
