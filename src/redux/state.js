@@ -1,41 +1,88 @@
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_MESSAGE = 'UPDATE-NEW-MESSAGE-TEXT';
+const ADD_POST = 'ADD-POST';
+const UPDATE_POST = 'UPDATE-NEW-POST-TEXT';
 let store = {
     _state: {
-        user: {name: "Igor", surname: "Fliginskikh"},
-        dialogs: [
-            {id: 1, name: 'Sasha'},
-            {id: 2, name: 'Peter'},
-            {id: 3, name: 'Anya'},
-            {id: 4, name: 'Elena'}
-        ],
-        messages: [
-            {chat_id: 1, message: 'Hi'},
-            {chat_id: 1, message: 'Hello'},
-            {chat_id: 1, message: 'How are u?'}
-        ],
-        newMessageText: ''
+        profilePage: {
+            user: {name: "Igor", surname: "Fliginskikh"},
+            posts: [
+                {id: 1, text: 'My first post'},
+                {id: 2, text: 'My second post'},
+                {id: 3, text: 'Third post'}
+            ],
+            newPostText: ''
+        },
+        dialogsPage: {
+            dialogs: [
+                {id: 1, name: 'Sasha'},
+                {id: 2, name: 'Peter'},
+                {id: 3, name: 'Anya'},
+                {id: 4, name: 'Elena'}
+            ],
+            messages: [
+                {chat_id: 1, message: 'Hi'},
+                {chat_id: 1, message: 'Hello'},
+                {chat_id: 1, message: 'How are u?'}
+            ],
+            newMessageText: ''
+        },
     },
     _callSubscriber() {
         console.log('State changed');
     },
+
     getState() {
-      return this._state;
-    },
-    addMessage(message) {
-        let newMessage = {
-            chat_id: message.chat_id,
-            message: message.message
-        };
-        this._state.messages.push(newMessage);
-        this._callSubscriber(this._state);
-    },
-    updateMessage(message) {
-        this._state.newMessageText = message;
-        this._callSubscriber(this._state);
+        return this._state;
     },
     subscribe(observer) {
         this._callSubscriber = observer;
+    },
+    dispatch(action) {
+        if (action.type === ADD_MESSAGE) {
+            let newMessage = {
+                chat_id: action.chat_id,
+                message: this._state.dialogsPage.newMessageText
+            };
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_MESSAGE) {
+            this._state.dialogsPage.newMessageText = action.message;
+            this._callSubscriber(this._state);
+        } else if (action.type === ADD_POST) {
+            debugger;
+            let newPost = {
+                id: this._state.profilePage.posts.length + 1,
+                text: this._state.profilePage.newPostText
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_POST) {
+            this._state.profilePage.newPostText = action.text;
+            this._callSubscriber(this._state);
+        }
     }
 };
 
+export const addMessageActionCreator = () => ({
+    type: ADD_MESSAGE,
+    chat_id: 1
+});
+
+export const changeTextActionCreator = (text) => ({
+    type: UPDATE_MESSAGE,
+    message: text
+});
+
+export const addPostActionCreator = () => ({
+    type: ADD_POST
+});
+
+export const changePostActionCreator = (text) => ({
+    type: UPDATE_POST,
+    text: text
+});
 
 export default store;

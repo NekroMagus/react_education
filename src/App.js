@@ -11,7 +11,7 @@ const App = (props) => {
                 <div className="row">
                     <Header/>
                     <Navbar/>
-                    <Content state={props.state} updateMessage={props.updateMessage} addMessage={props.addMessage}/>
+                    <Content state={props.state} dispatch={props.dispatch}/>
                 </div>
             </div>
     );
