@@ -17,7 +17,8 @@ const Profile = (props) => {
             </div>
             <div className="row">
                 <div className="col-md-12">
-                    <MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} dispatch={props.dispatch}/>
+                    <MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText}
+                             dispatch={props.dispatch}/>
                 </div>
             </div>
         </section>

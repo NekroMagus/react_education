@@ -7,13 +7,13 @@ import Content from "./components/content/Content";
 
 const App = (props) => {
     return (
-            <div className="container-fluid">
-                <div className="row">
-                    <Header/>
-                    <Navbar/>
-                    <Content state={props.state} dispatch={props.dispatch}/>
-                </div>
+        <div className="container-fluid">
+            <div className="row">
+                <Header/>
+                <Navbar/>
+                <Content state={props.state} dispatch={props.dispatch}/>
             </div>
+        </div>
     );
 };
 

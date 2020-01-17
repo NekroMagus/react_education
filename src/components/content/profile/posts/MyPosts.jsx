@@ -3,7 +3,7 @@ import {addPostActionCreator, changePostActionCreator} from "../../../../redux/s
 
 const MyPosts = (props) => {
 
-    const allPostElements= props.posts.map(x=><li>{x.text}</li>);
+    const allPostElements = props.posts.map(x => <li>{x.text}</li>);
 
     const addPost = () => {
         props.dispatch(addPostActionCreator());
@@ -17,7 +17,7 @@ const MyPosts = (props) => {
     return (
         <div>
             {allPostElements}
-            <textarea onChange={changePost}  value={props.newPostText}/>
+            <textarea onChange={changePost} value={props.newPostText}/>
             <button onClick={addPost}>Опубликовать</button>
         </div>
     );
