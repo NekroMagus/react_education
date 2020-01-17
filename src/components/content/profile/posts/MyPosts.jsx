@@ -1,24 +1,25 @@
 import React from 'react';
-import {addPostActionCreator, changePostActionCreator} from "../../../../redux/state";
 
 const MyPosts = (props) => {
 
     const allPostElements = props.posts.map(x => <li>{x.text}</li>);
+    debugger;
+    let newPostText = props.newPostText;
 
-    const addPost = () => {
-        props.dispatch(addPostActionCreator());
+    const createNewPost = () => {
+        props.addPost();
     };
 
-    const changePost = (e) => {
-        let text = e.target.value;
-        props.dispatch(changePostActionCreator(text));
+    const updatePost = (e) => {
+        let body = e.target.value;
+        props.changePost(body);
     };
 
     return (
         <div>
             {allPostElements}
-            <textarea onChange={changePost} value={props.newPostText}/>
-            <button onClick={addPost}>Опубликовать</button>
+            <textarea onChange={updatePost} value={newPostText}/>
+            <button onClick={createNewPost}>Опубликовать</button>
         </div>
     );
 };
