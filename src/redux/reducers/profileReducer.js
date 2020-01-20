@@ -17,10 +17,16 @@ const profileReducer = (state = initialState, action) => {
             id: state.posts.length + 1,
             text: state.newPostText
         };
-        state.posts.push(newPost);
-        state.newPostText = '';
+        return {
+            ...state,
+            newPostText: '',
+            posts: [...state.posts, newPost]
+        };
     } else if (action.type === UPDATE_POST) {
-        state.newPostText = action.text;
+        return {
+            ...state,
+            newPostText: action.text
+        };
     }
     return state;
 };

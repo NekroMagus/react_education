@@ -7,21 +7,19 @@ import {addMessageActionCreator, changeTextActionCreator} from "../../../redux/s
 
 const Dialogs = (props) => {
 
-    let dialogElements = props.dialogsPage.dialogs
+    let dialogElements = props.dialogs
         .map(x => <DialogName id={x.id} name={x.name}/>);
 
-    let messagesElements = props.dialogsPage.messages
-        .map(x => <Route path={`/dialogs/${x.chat_id}`} render={(props) => (<Messages message={x.message}/>)}/>);
+    let messagesElements = props.messages
+        .map(x => <Route path={`/dialogs/${x.chat_id}`} render={() => (<Messages message={x.message}/>)}/>);
 
-    let newChangeElement = React.createRef();
-
-    let changeText = () => {
-        let text = newChangeElement.current.value;
-        props.dispatch(changeTextActionCreator(text));
+    const addMessage = () => {
+        props.sendMessage();
     };
 
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+    const changeText = (e) => {
+        let text = e.target.value;
+        props.changeTextMessage(text);
     };
 
     return (
@@ -35,7 +33,7 @@ const Dialogs = (props) => {
                 <ul>
                     {messagesElements}
                 </ul>
-                <textarea ref={newChangeElement} onChange={changeText} value={props.dialogsPage.newMessageText}/>
+                <textarea onChange={changeText} value={props.newMessageText}/>
                 <button onClick={addMessage}>Отправить</button>
             </div>
         </section>

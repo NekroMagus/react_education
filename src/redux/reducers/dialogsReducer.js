@@ -22,10 +22,16 @@ const dialogsReducer = (state = initialState, action) => {
             chat_id: action.chat_id,
             message: state.newMessageText
         };
-        state.messages.push(newMessage);
-        state.newMessageText = '';
+        return {
+            ...state,
+            newMessageText: '',
+            messages: [...state.messages, newMessage],
+        };
     } else if (action.type === UPDATE_MESSAGE) {
-        state.newMessageText = action.message;
+        return {
+            ...state,
+            newMessageText: action.message
+        };
     }
     return state;
 };

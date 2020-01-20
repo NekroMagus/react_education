@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyPosts = (props) => {
 
-    const allPostElements = props.posts.map(x => <li>{x.text}</li>);
-    debugger;
+    const allPostElements = props.posts.map(x => <li key={x.id}>{x.text}</li>);
+
     let newPostText = props.newPostText;
 
     const createNewPost = () => {

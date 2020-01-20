@@ -5,7 +5,7 @@ import Header from "./components/header/Header";
 import Navbar from "./components/navbar/Navbar";
 import Content from "./components/content/Content";
 
-const App = (props) => {
+const App = () => {
     return (
         <div className="container-fluid">
             <div className="row">

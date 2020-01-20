@@ -1,13 +1,12 @@
 import React from 'react';
-import Dialogs from "./dialogs/Dialogs";
-import Profile from "./profile/Profile";
 import {Route} from "react-router-dom";
 import ProfileContainer from "./profile/ProfileContainer";
+import DialogsContainer from "./dialogs/DialogsContainer";
 
-const Content = (props) => {
+const Content = () => {
     return (
         <main className={`col-sm-9`}>
-            <Route path="/dialogs" render={() => <Dialogs/>}/>
+            <Route path="/dialogs" render={() => <DialogsContainer/>}/>
             <Route path="/profile" render={() => (<ProfileContainer/>)}/>
         </main>
     );
