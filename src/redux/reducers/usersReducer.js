@@ -24,7 +24,7 @@ let initialState = {
             fullName: 'Sasha',
             status: 'I\'m a boss too',
             location: {city: 'Kiev', country: 'Ukraine'}
-        }, d
+        },
     ]
 };
 

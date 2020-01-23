@@ -9,6 +9,7 @@ const Navbar = () => {
                 <li><NavLink to="/profile" activeClassName={css.active}> Profile </NavLink></li>
                 <li><NavLink to="/dialogs" activeClassName={css.active}> Dialogs </NavLink></li>
                 <li><NavLink to="/main" activeClassName={css.active}> Main Content</NavLink></li>
+                <li><NavLink to="/users" activeClassName={css.active}>Users</NavLink></li>
             </ul>
         </nav>
     );
