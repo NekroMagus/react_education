@@ -12,23 +12,25 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-    if (action.type === ADD_POST) {
-        let newPost = {
-            id: state.posts.length + 1,
-            text: state.newPostText
-        };
-        return {
-            ...state,
-            newPostText: '',
-            posts: [...state.posts, newPost]
-        };
-    } else if (action.type === UPDATE_POST) {
-        return {
-            ...state,
-            newPostText: action.text
-        };
+    switch (action.type) {
+        case ADD_POST:
+            let newPost = {
+                id: state.posts.length + 1,
+                text: state.newPostText
+            };
+            return {
+                ...state,
+                newPostText: '',
+                posts: [...state.posts, newPost]
+            };
+        case UPDATE_POST:
+            return {
+                ...state,
+                newPostText: action.text
+            };
+        default:
+            return state;
     }
-    return state;
 };
 
 export default profileReducer;

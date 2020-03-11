@@ -17,23 +17,25 @@ let initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
-    if (action.type === ADD_MESSAGE) {
-        let newMessage = {
-            chat_id: action.chat_id,
-            message: state.newMessageText
-        };
-        return {
-            ...state,
-            newMessageText: '',
-            messages: [...state.messages, newMessage],
-        };
-    } else if (action.type === UPDATE_MESSAGE) {
-        return {
-            ...state,
-            newMessageText: action.message
-        };
+    switch (action.type) {
+        case ADD_MESSAGE:
+            let newMessage = {
+                chat_id: action.chat_id,
+                message: state.newMessageText
+            };
+            return {
+                ...state,
+                newMessageText: '',
+                messages: [...state.messages, newMessage],
+            };
+        case UPDATE_MESSAGE:
+            return {
+                ...state,
+                newMessageText: action.message
+            };
+        default:
+            return state;
     }
-    return state;
 };
 
 export default dialogsReducer;
