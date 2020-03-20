@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        changeTextMessage: (text) =>{
+        changeTextMessage: (text) => {
             dispatch(changeTextActionCreator(text));
         },
         sendMessage: () => {

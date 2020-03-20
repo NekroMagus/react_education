@@ -1,15 +1,19 @@
 import React, {Component} from "react";
-import ProfileImage from '../../../profile_image.jpg';
 import css from './Profile.module.css';
 import MyPostsContainer from "./posts/MyPostsContainer";
+import Preloader from "../../common/preloader/Preloader";
 
 class Profile extends Component {
+
     render() {
+        if (!this.props.profile) {
+            return <Preloader/>
+        }
         return (
             <section className="col-md-9">
                 <div className="row">
                     <div className="col-md-4">
-                        <img src={ProfileImage} className={css.img} alt="profile image"/>
+                        <img src={this.props.profile.photos.large} className={css.img} alt="profile image"/>
                     </div>
                     <div className="col-md-7">
                         <p>My name is: {this.props.name}</p>

@@ -3,7 +3,6 @@ import css from './Dialogs.module.css';
 import DialogName from "./dialogName/DialogName";
 import Messages from './messages/Messages';
 import {Route} from "react-router-dom";
-import {addMessageActionCreator, changeTextActionCreator} from "../../../redux/state";
 
 const Dialogs = (props) => {
 
