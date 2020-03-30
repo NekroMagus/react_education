@@ -26,8 +26,7 @@ let store = {
             ],
             messages: [
                 {chat_id: 1, message: 'Hi'},
-                {chat_id: 1, message: 'Hello'},
-                {chat_id: 1, message: 'How are u?'}
+                {chat_id: 1, message: 'Hello'}
             ],
             newMessageText: ''
         },
@@ -49,7 +48,7 @@ let store = {
     }
 };
 
-export const addMessageActionCreator = () => ({
+export const addMessageActionCreator = (text) => ({
     type: ADD_MESSAGE,
     chat_id: 1
 });

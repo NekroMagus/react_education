@@ -22,7 +22,20 @@ export const usersAPI = {
             .then(res => res.data);
     },
     getProfile(userId) {
-        return instance.get(`profile/${userId}`);
+        console.warn('Deprecated method. Please use profileAPI object.');
+        return profileAPI.getProfile(userId);
+    }
+};
+
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get('profile/' + userId);
+    },
+    getStatus(userId) {
+        return instance.get('profile/status/' + userId);
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status/`, {status});
     }
 };
 
@@ -30,6 +43,15 @@ export const authAPI = {
     me() {
         return instance.get('auth/me')
             .then(res => res.data);
+    },
+    login(email, password, rememberMe = false) {
+        return instance.post('auth/login', {email, password, rememberMe});
+    },
+    logout() {
+        return instance.delete('/auth/login')
+            .then(res => res.data);
     }
 };
+
+
 
